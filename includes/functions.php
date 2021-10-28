@@ -18,18 +18,41 @@ function db()
   }
 }
 
-function db_query($sql = '')
+function db_query($sql = '', $exec = false)
 {
   if (empty($sql)) return false;
-
-  $statement = db()->query($sql);
-  return $statement;
+  if ($exec) {
+    $statement = db()->exec($sql);
+    return $statement;
+  } else {
+    $statement = db()->query($sql);
+    return $statement;
+  }
 }
 
-function db_exec($sql = '')
+function get_user_count()
 {
-  if (empty($sql)) return false;
+  return db_query("SELECT COUNT(id) FROM `users`;")->fetchColumn();
+}
 
-  $statement = db()->exec($sql);
-  return $statement;
+function get_links_count()
+{
+  return db_query("SELECT COUNT(id) FROM `links`;")->fetchColumn();
+}
+
+function get_views_count()
+{
+  return db_query("SELECT SUM(`views`) FROM `links`;")->fetchColumn();
+}
+
+function get_link_info($url)
+{
+  if (empty($url)) return [];
+  return db_query("SELECT * FROM `links` WHERE `short_link` = '$url';")->fetch();
+}
+
+function update_views($url)
+{
+  if (empty($url)) return false;
+  return db_query("UPDATE `links` SET `views` = `views` + 1 WHERE `short_link` = '$url';", true);
 }
