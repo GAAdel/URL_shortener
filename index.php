@@ -1,5 +1,7 @@
 <?php
+
 if (isset($_GET['url']) && !empty($_GET['url'])) {
+	include_once __DIR__ . "/includes/functions.php";
 	$url = strtolower(trim($_GET['url']));
 
 	$link = get_link_info($url);
@@ -13,7 +15,8 @@ if (isset($_GET['url']) && !empty($_GET['url'])) {
 	die;
 }
 
-include "includes/header.php"
+include_once __DIR__ . "/includes/header.php";
+
 ?>
 
 <main class="container">

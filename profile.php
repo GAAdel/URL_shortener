@@ -1,6 +1,6 @@
 <?php
 
-include "includes/header_profile.php";
+include_once "includes/header_profile.php";
 
 $error = '';
 if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
@@ -98,5 +98,5 @@ if (isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['pass']) &
 	</div>
 </div>
 <?php
-include "includes/footer_profile.php";
+include_once "includes/footer_profile.php";
 ?>

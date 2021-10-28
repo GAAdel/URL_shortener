@@ -1,5 +1,5 @@
 <?php
-include "includes/header.php";
+include_once "includes/header.php";
 
 // echo "<pre>";
 // var_dump($_POST);
@@ -61,4 +61,4 @@ if (isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['pass']) &
 		</div>
 	</div>
 </main>
-<?php include "includes/footer.php" ?>
+<?php include_once "includes/footer.php" ?>
