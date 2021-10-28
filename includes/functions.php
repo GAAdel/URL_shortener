@@ -100,3 +100,29 @@ function register_user($auth_data)
 
   return true;
 }
+
+function login_user($auth_data)
+{
+  if (
+    empty($auth_data) || !isset($auth_data['login']) || empty($auth_data['login']) || !isset($auth_data['pass']) ||
+    empty($auth_data['pass'])
+  ) {
+    $_SESSION['error'] = "Логин или пароль не может быть пустым.";
+    header('Location: login.php');
+  }
+  $user = get_user_info($auth_data['login']);
+  if (empty($user)) {
+    $_SESSION['error'] = "Логин или пароль неверен!";
+    header('Location: login.php');
+    die;
+  }
+
+  if (password_verify($auth_data['pass'], $user['pass'])) {
+    $_SESSION['user'] = $user;                              // записываем инфу в сессииб об авторизации (лучше зааписывать не все данные)
+    header('Location: profile.php');
+    die;
+  } else {
+    $_SESSION['error'] = "Пароль неверен!";
+    header('Location: login.php');
+  }
+}
