@@ -8,7 +8,7 @@ if (isset($_SESSION['user']['id'])) {
 
 // echo "<pre>";
 // var_dump($_POST);
-// echo "</pre>";
+// echo "</pre>";	
 
 $error = '';
 if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
@@ -32,14 +32,14 @@ if (isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['pass']) &
 <main class="container">
 
 	<?php if (!empty($success)) { ?>
-		<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+		<div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
 			<?php echo $success; 	?>
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 	<?php } ?>
 
 	<?php if (!empty($error)) { ?>
-		<div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+		<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
 			<?php echo $error; 	?>
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
