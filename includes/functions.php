@@ -139,3 +139,8 @@ function login_user($auth_data)
     header('Location: login.php');
   }
 }
+function get_user_links($user_id)
+{
+  if (empty($user_id)) return [];
+  return db_query("SELECT * FROM `links` WHERE `user_id` = '$user_id';")->fetchAll();
+}

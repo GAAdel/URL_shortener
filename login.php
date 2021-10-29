@@ -1,5 +1,5 @@
 <?php
-include_once "includes/functions.php";
+include_once "includes/header.php";
 
 if (isset($_SESSION['user']['id'])) {
 	header('Location: profile.php');
@@ -27,7 +27,6 @@ if (isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['pass']) &
 	login_user($_POST);
 }
 
-include_once "includes/header.php";
 
 ?>
 <main class="container">
