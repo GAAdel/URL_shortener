@@ -2,6 +2,11 @@
 
 include_once "includes/functions.php";
 
+if (!isset($_SESSION['user']['id'])) {
+	header('Location: index.php');
+	die;
+}
+
 $error = '';
 if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 	$error = $_SESSION['error'];

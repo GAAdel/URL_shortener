@@ -1,6 +1,11 @@
 <?php
 include_once "includes/functions.php";
 
+if (isset($_SESSION['user']['id'])) {
+	header('Location: profile.php');
+	die;
+}
+
 // echo "<pre>";
 // var_dump($_SESSION);
 // echo "</pre>";
