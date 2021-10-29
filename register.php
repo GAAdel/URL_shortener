@@ -1,5 +1,5 @@
 <?php
-include "includes/header.php";
+include_once "includes/functions.php";
 
 // echo "<pre>";
 // var_dump($_SESSION);
@@ -22,6 +22,7 @@ if (isset($_POST['login']) && !empty($_POST['login'])) {
 	register_user($_POST);
 }
 
+include "includes/header.php";
 ?>
 
 <main class="container">

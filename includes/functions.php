@@ -80,6 +80,12 @@ function register_user($auth_data)
     return false;
   }
 
+  if (preg_match('/[^A-Za-z0-9]/', $auth_data['login'])) {
+    $_SESSION['error'] = "Логин должен содержать только латиницу.";
+    header('Location: register.php');
+    die;
+  }
+
   $user = get_user_info($auth_data['login']);
   if (!empty($user)) {
     $_SESSION['error'] = "Пользователь '" . $auth_data['login'] . "' уже существует.";
@@ -90,6 +96,13 @@ function register_user($auth_data)
   if ($auth_data['pass'] !== $auth_data['pass2']) {
     $_SESSION['error'] = "Пароли не совпадают.";
     header('Location: register.php');
+    die;
+  }
+
+  if (strlen($auth_data['pass']) < 5) {
+    $_SESSION['error'] = "Пароль слишком короткий.";
+    header('Location: register.php');
+    die;
   }
 
   if (add_user($auth_data['login'], $auth_data['pass'])) {

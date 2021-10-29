@@ -1,6 +1,6 @@
 <?php
 
-include_once "includes/header_profile.php";
+include_once "includes/functions.php";
 
 $error = '';
 if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
@@ -18,6 +18,8 @@ if (isset($_SESSION['success']) && !empty($_SESSION['success'])) {
 if (isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['pass']) && !empty($_POST['pass'])) {
 	login_user($_POST);
 }
+
+include_once "includes/header_profile.php";
 
 ?>
 <main class="container">
