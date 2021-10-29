@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Окт 27 2021 г., 22:34
+-- Время создания: Окт 30 2021 г., 00:09
 -- Версия сервера: 10.3.16-MariaDB
 -- Версия PHP: 7.3.6
 
@@ -41,8 +41,14 @@ CREATE TABLE `links` (
 --
 
 INSERT INTO `links` (`id`, `user_id`, `long_link`, `short_link`, `views`) VALUES
-(1, 1, 'https://yandex.ru', 'ya', 21),
-(2, 2, 'https://google.com', 'goog', 31);
+(1, 4, 'https://yandex.ru', 'ya', 24),
+(3, 11, 'https://vk.com', 'vk', 0),
+(49, 3, 'werew', NULL, 0),
+(50, 4, 'qerwqerwe', 'werqwreewr', 0),
+(51, 4, 'wrwerwe', 'rweterterter', 0),
+(52, 4, 'rethfg', 'ghjghjfgj', 0),
+(56, 11, 'asdasdsad ', 'yjihxu', 123),
+(57, 11, 'https://vk.com', '6134rd', 126);
 
 -- --------------------------------------------------------
 
@@ -61,8 +67,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `pass`) VALUES
-(1, 'ivan', 'qwerty'),
-(2, 'andrey', 'qwerty');
+(4, 'ignat', '$2y$10$cGermFGPYLI/VNyVghNcQulsHnlcPNNsavZvec2x3qTorL1OKU2vC'),
+(11, 'rail', '$2y$10$DHXShNAjbFqDf1JrMaVgqeVFggJZlNeo1fvbcWMTOUh0SDgHRwJl2'),
+(13, 'qwerty1', '$2y$10$b5tqjW7c7NWwEc2fuDtS5.JRBE30gYnjrYnlqinLE90Q3.d6oE1J6'),
+(14, 'qwerty2', '$2y$10$GYvHbcAsxpLclfVtfDyr.eQg93m9KenKx1cWhX0X4vuCmLeYC9ciq'),
+(15, '1234567890', '$2y$10$O1X5yZL1bU0uEtQeHsa2.OxNxI6mrUZiLZKvHuo8Kagl7G.Jh0D8m'),
+(16, '121212', '$2y$10$.Wj9sJ2PqKUCftHAu63E4urzAh.aeNATmGD9zoMoCkQYAo3Gg7qKG');
 
 --
 -- Индексы сохранённых таблиц
@@ -90,13 +100,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `links`
 --
 ALTER TABLE `links`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
